@@ -58,11 +58,8 @@ body.stop-scrolling {
     text-align: inherit;
     float: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 15px 0;
     line-height: normal; }
-  .sweet-alert fieldset {
-    border: none;
-    position: relative; }
   .sweet-alert .sa-error-container {
     background-color: #f1f1f1;
     margin-left: -17px;

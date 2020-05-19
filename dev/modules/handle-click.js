@@ -84,11 +84,11 @@ var handleButton = function(event, params, modal) {
 var handleConfirm = function(modal, params) {
   var callbackValue = true;
 
-  if (hasClass(modal, 'show-input')) {
-    callbackValue = modal.querySelector('input').value;
+  if (hasClass(modal, 'show-form')) {
+    callbackValue = new FormData(modal.querySelector('form'));
 
-    if (!callbackValue) {
-      callbackValue = '';
+    if (callbackValue.entries().next().done) {
+      callbackValue = false;
     }
   }
 
@@ -121,7 +121,7 @@ var handleCancel = function(modal, params) {
 };
 
 
-export default {
+export {
   handleButton,
   handleConfirm,
   handleCancel

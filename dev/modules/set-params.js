@@ -1,4 +1,4 @@
-var alertTypes = ['error', 'warning', 'info', 'success', 'input', 'prompt'];
+var alertTypes = ['error', 'warning', 'info', 'success', 'form'];
 
 import {
   isIE8
@@ -6,7 +6,7 @@ import {
 
 import {
   getModal,
-  getInput,
+  getForm,
   setFocusStyle
 } from './handle-swal-dom';
 
@@ -81,7 +81,7 @@ var setParameters = function(params) {
       show($icon);
     }
 
-    let $input = getInput();
+    let $form = getForm();
 
     // Animate icon
     switch (params.type) {
@@ -103,16 +103,8 @@ var setParameters = function(params) {
         addClass($icon.querySelector('.sa-dot'), 'pulseWarningIns');
         break;
 
-      case 'input':
-      case 'prompt':
-        $input.setAttribute('type', params.inputType);
-        $input.value = params.inputValue;
-        $input.setAttribute('placeholder', params.inputPlaceholder);
-        addClass(modal, 'show-input');
-        setTimeout(function () {
-          $input.focus();
-          $input.addEventListener('keyup', swal.resetInputError);
-        }, 400);
+      case 'form':
+        addClass(modal, 'show-form');
         break;
     }
   }

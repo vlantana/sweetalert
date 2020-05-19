@@ -35,12 +35,12 @@ var getModal = function() {
 };
 
 /*
- * Get DOM element of input (in modal)
+ * Get DOM element of form (in modal)
  */
-var getInput = function() {
+var getForm = function() {
   var $modal = getModal();
   if ($modal) {
-    return $modal.querySelector('input');
+    return $modal.querySelector('form');
   }
 };
 
@@ -83,7 +83,7 @@ var openModal = function(callback) {
     var timerCallback = callback;
     $modal.timeout = setTimeout(function() {
       var doneFunctionExists = ((timerCallback || null) && $modal.getAttribute('data-has-done-function') === 'true');
-      if (doneFunctionExists) { 
+      if (doneFunctionExists) {
         timerCallback(null);
       }
       else {
@@ -94,37 +94,16 @@ var openModal = function(callback) {
 };
 
 /*
- * Reset the styling of the input
+ * Reset the styling of the form
  * (for example if errors have been shown)
  */
-var resetInput = function() {
+var resetForm = function() {
   var $modal = getModal();
-  var $input = getInput();
+  var $form = getForm();
 
-  removeClass($modal, 'show-input');
-  $input.value = defaultParams.inputValue;
-  $input.setAttribute('type', defaultParams.inputType);
-  $input.setAttribute('placeholder', defaultParams.inputPlaceholder);
-
-  resetInputError();
+  removeClass($modal, 'show-form');
+  $form.innerHTML = '';
 };
-
-
-var resetInputError = function(event) {
-  // If press enter => ignore
-  if (event && event.keyCode === 13) {
-    return false;
-  }
-
-  var $modal = getModal();
-
-  var $errorIcon = $modal.querySelector('.sa-input-error');
-  removeClass($errorIcon, 'show');
-
-  var $errorContainer = $modal.querySelector('.sa-error-container');
-  removeClass($errorContainer, 'show');
-};
-
 
 /*
  * Set "margin-top"-property on modal based on its computed height
@@ -135,14 +114,13 @@ var fixVerticalPosition = function() {
 };
 
 
-export { 
+export {
   sweetAlertInitialize,
   getModal,
   getOverlay,
-  getInput,
+  getForm,
   setFocusStyle,
   openModal,
-  resetInput,
-  resetInputError,
+  resetForm,
   fixVerticalPosition
 };

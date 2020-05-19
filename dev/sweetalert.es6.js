@@ -34,10 +34,10 @@ import {
   sweetAlertInitialize,
   getModal,
   getOverlay,
-  getInput,
+  getForm,
   setFocusStyle,
   openModal,
-  resetInput,
+  resetForm,
   fixVerticalPosition
 } from './modules/handle-swal-dom';
 
@@ -69,7 +69,7 @@ export default sweetAlert = swal = function() {
   var customizations = arguments[0];
 
   addClass(document.body, 'stop-scrolling');
-  resetInput();
+  resetForm();
 
   /*
    * Use argument if defined or default value from params object otherwise.
@@ -166,9 +166,13 @@ export default sweetAlert = swal = function() {
       }
     }, 0);
   };
-  
+
   // Show alert with enabled buttons always
   swal.enableButtons();
+  //Trigger onDone custom function if defined
+  if(typeof params.onDone === 'function') {
+    params.onDone();
+  }
 };
 
 
@@ -236,48 +240,6 @@ sweetAlert.close = swal.close = function() {
   clearTimeout(modal.timeout);
 
   return true;
-};
-
-
-/*
- * Validation of the input field is done by user
- * If something is wrong => call showInputError with errorMessage
- */
-sweetAlert.showInputError = swal.showInputError = function(errorMessage) {
-  var modal = getModal();
-
-  var $errorIcon = modal.querySelector('.sa-input-error');
-  addClass($errorIcon, 'show');
-
-  var $errorContainer = modal.querySelector('.sa-error-container');
-  addClass($errorContainer, 'show');
-
-  $errorContainer.querySelector('p').innerHTML = errorMessage;
-
-  setTimeout(function() {
-    sweetAlert.enableButtons();
-  }, 1);
-
-  modal.querySelector('input').focus();
-};
-
-
-/*
- * Reset input error DOM elements
- */
-sweetAlert.resetInputError = swal.resetInputError = function(event) {
-  // If press enter => ignore
-  if (event && event.keyCode === 13) {
-    return false;
-  }
-
-  var $modal = getModal();
-
-  var $errorIcon = $modal.querySelector('.sa-input-error');
-  removeClass($errorIcon, 'show');
-
-  var $errorContainer = $modal.querySelector('.sa-error-container');
-  removeClass($errorContainer, 'show');
 };
 
 /*

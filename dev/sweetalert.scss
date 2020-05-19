@@ -75,13 +75,8 @@ body.stop-scrolling {
     text-align: inherit;
     float: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 15px 0;
     line-height: normal;
-  }
-
-  fieldset {
-    border: none;
-    position: relative;
   }
 
   .sa-error-container {
