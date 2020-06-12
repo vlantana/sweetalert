@@ -14,7 +14,7 @@ body.stop-scrolling {
   top: 0;
   bottom: 0;
   display: none;
-  z-index: 10000; }
+  z-index: 99999; }
 
 .sweet-alert {
   background-color: white;
@@ -99,7 +99,7 @@ body.stop-scrolling {
     margin-top: 4px;
     opacity: 0;
     visibility: hidden; }
-  .sweet-alert button {
+  .sweet-alert .sa-button-container button {
     background-color: #8CD4F5;
     color: white;
     border: none;
@@ -111,31 +111,31 @@ body.stop-scrolling {
     padding: 10px 32px;
     margin: 26px 5px 0 5px;
     cursor: pointer; }
-    .sweet-alert button:focus {
+    .sweet-alert .sa-button-container button:focus {
       outline: none;
       box-shadow: 0 0 2px rgba(128, 179, 235, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.05); }
-    .sweet-alert button:hover {
+    .sweet-alert .sa-button-container button:hover {
       background-color: #7ecff4; }
-    .sweet-alert button:active {
+    .sweet-alert .sa-button-container button:active {
       background-color: #5dc2f1; }
-    .sweet-alert button.cancel {
+    .sweet-alert .sa-button-container button.cancel {
       background-color: #C1C1C1; }
-      .sweet-alert button.cancel:hover {
+      .sweet-alert .sa-button-container button.cancel:hover {
         background-color: #b9b9b9; }
-      .sweet-alert button.cancel:active {
+      .sweet-alert .sa-button-container button.cancel:active {
         background-color: #a8a8a8; }
-      .sweet-alert button.cancel:focus {
+      .sweet-alert .sa-button-container button.cancel:focus {
         box-shadow: rgba(197, 205, 211, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset !important; }
-    .sweet-alert button[disabled] {
+    .sweet-alert .sa-button-container button[disabled] {
       opacity: .6;
       cursor: default; }
-    .sweet-alert button.confirm[disabled] {
+    .sweet-alert .sa-button-container button.confirm[disabled] {
       color: transparent; }
-      .sweet-alert button.confirm[disabled] ~ .la-ball-fall {
+      .sweet-alert .sa-button-container button.confirm[disabled] ~ .la-ball-fall {
         opacity: 1;
         visibility: visible;
         transition-delay: 0s; }
-    .sweet-alert button::-moz-focus-inner {
+    .sweet-alert .sa-button-container button::-moz-focus-inner {
       border: 0; }
   .sweet-alert[data-has-cancel-button=false] button {
     box-shadow: none !important; }

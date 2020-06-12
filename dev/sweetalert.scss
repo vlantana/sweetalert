@@ -20,7 +20,7 @@ body.stop-scrolling {
   bottom: 0;
 
   display: none;
-  z-index: 10000;
+  z-index: 99999;
 }
 
 .sweet-alert {
@@ -131,7 +131,7 @@ body.stop-scrolling {
     visibility: hidden;
   }
 
-  button {
+  .sa-button-container button {
     $btnBlue: #8CD4F5;
     $btnGray: #C1C1C1;
 
