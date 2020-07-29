@@ -111,9 +111,13 @@ body.stop-scrolling {
     }
   }
 
-
-  &.show-form form{
-    display: block;
+  &.show-form {
+    &.showSweetAlert + .select2-container {
+      z-index: 99999;
+    }
+    form {
+      display: block;
+    }
   }
 
   .sa-confirm-button-container {

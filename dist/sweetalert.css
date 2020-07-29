@@ -86,6 +86,8 @@ body.stop-scrolling {
       margin-right: 3px; }
     .sweet-alert .sa-error-container p {
       display: inline-block; }
+  .sweet-alert.show-form.showSweetAlert + .select2-container {
+    z-index: 99999; }
   .sweet-alert.show-form form {
     display: block; }
   .sweet-alert .sa-confirm-button-container {
